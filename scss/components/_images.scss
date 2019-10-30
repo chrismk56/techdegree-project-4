@@ -1,0 +1,27 @@
+/* ============================================= */
+/*              Images                           */
+/* ============================================= */
+
+.img-avatar {
+    @include center;
+    @extend %imgs;
+  }
+  
+  .img-frame {
+    @include center($brdr: 1px solid $color-border,$pdd: 13px);
+    @extend %imgs;
+    
+  }
+  
+  .img-logo {
+    @include center;
+    @media (min-width: $tablet-width) {
+        .logo {
+            margin-left: initial;
+            margin-right: initial;
+        }
+    }
+  }
+
+
+

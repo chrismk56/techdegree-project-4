@@ -1,0 +1,55 @@
+@mixin center($max-w:null,$pdd:null,$brdr:null) {
+    max-width: $max-w;
+    padding: $pdd;
+    border: $brdr;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex($dsp:flex, $dir:null,$just:null,$wrap:null) {
+    display:$dsp;
+    flex-direction: $dir;
+    justify-content:$just;
+    flex-wrap: $wrap;
+}
+
+@mixin mq($breakpoint) {
+    @if $breakpoint == 'tablet-width' {
+        @media (min-width: $tablet-width) {
+            @content;
+        }
+    }   
+}
+
+@mixin grid-cols {
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            flex-basis: 8.33% * $i;
+        } 
+    }
+}
+
+@mixin theme-color {
+    @each $theme, $color in $theme-colors {
+        .theme.#{$theme}{
+            background-color: $color;
+        }
+    }
+}
+
+@mixin btn-colors {
+    @each $btn, $color in $btn-colors {
+        .#{$btn} {
+        background-color:$color;
+    }
+}
+}
+
+@mixin btn-hover-light {
+    @each $btn, $color in $btn-colors {
+        .#{$btn}:hover {
+        background-color:lighten($color, 15%);
+    }
+}
+}
